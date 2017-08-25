@@ -1,4 +1,6 @@
-FROM alpine:3.5
+FROM resin/raspberry-pi2-alpine
+
+RUN [ "cross-build-start"]
 
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
@@ -141,3 +143,5 @@ EXPOSE 80
 STOPSIGNAL SIGTERM
 
 CMD ["nginx", "-g", "daemon off;"]
+
+RUN [ "cross-build-end"]
